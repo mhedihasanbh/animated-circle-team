@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+.container{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.image-area{
+    position: relative;
+    left:-50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-box{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 4px #222,0 0 0 6px #fff;
+    transform: rotate(calc(360deg/8 * var(--i)));
+    transform-origin: 280px;
+    z-index: 100;
+    overflow: hidden;
+   
+}
+.image-box.active{
+    box-shadow: 0 0 0 4px #222,0 0 0 6px #ff1d50;
+}
+.image-box img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: rotate(calc(-360deg/8 * var(--i)));
+    filter: grayscale(1);
+
+}
+.image-box.active img{
+    filter: grayscale(0);
+}
+.content{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content::before{
+    content:'';
+    position: absolute;
+    border: 4px solid transparent;
+    border-left: 4px solid #2196f3;
+    border-right: 4px solid #fff;
+    inset: 60px;
+    border-radius: 50%;
+}
+.contentbx{
+    position:absolute;
+    transform: scale(0);
+    transition: 0.5s;
+    opacity: 0;
+}
+.contentbx.active{
+    transform: scale(1);
+    transition: 0.5s;
+    opacity: 1;
+    transition: 0.5s;
+}
+.card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:15px;
+}
+.imageBox{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.imageBox img{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.textBox{
+    color:#fff;
+}
+.textBox ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.textBox ul li a{
+    color:#fff;
+}
